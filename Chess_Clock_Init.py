@@ -4,12 +4,12 @@ import keyboard
 from Chess_Clock_Utilities import *
 from Chess_Clock_Game import *
 
-CLOCK_ON_RIGHT_OF_BLACK = True
+CLOCK_ON_RIGHT_OF_BLACK = False
 
 white_time_init = '0:15'
 black_time_init = '0:15'
-white_increment = 2
-black_increment = 2
+white_increment = 0
+black_increment = 0
 
 screen = turtle.Screen()
 screen.setup(width=0.8, height=0.8)
