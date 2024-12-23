@@ -4,7 +4,7 @@ import keyboard
 from Chess_Clock_Utilities import *
 
 FONTSIZE = 50
-SENSITIVITY = 0.5 # manually adjusted
+SENSITIVITY = 0.25 # manually adjusted
 
 def white_special_rule(white_time, white_move_count):
     # if white_move_count == 3:
@@ -16,12 +16,12 @@ def black_special_rule(black_time, black_move_count):
     #     return black_time + 5*60
     return black_time
 
-def game_start(white_turtle, black_turtle, white_time_init, black_time_init, white_increment, black_increment):
+def game_start(white_turtle, black_turtle, white_time_in, black_time_in, white_increment, black_increment):
+    white_time = white_time_in # local vs global variable fix
+    black_time = black_time_in
     white_move_counter = 0
     black_move_counter = 0
     white_turn = True
-    white_time = time_in_seconds(white_time_init)
-    black_time = time_in_seconds(black_time_init)
     last_stamp = time.time()
     time.sleep(SENSITIVITY)
     while 1:

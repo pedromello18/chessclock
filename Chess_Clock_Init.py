@@ -6,8 +6,8 @@ from Chess_Clock_Game import *
 
 CLOCK_ON_RIGHT_OF_BLACK = True
 
-white_time_init = '1:02'
-black_time_init = '1:02'
+white_time_init = '0:15'
+black_time_init = '0:15'
 white_increment = 0
 black_increment = 0
 
@@ -37,12 +37,15 @@ else:
     black.pu()
     black.goto(-screen.window_width()/4, -FONTSIZE/2)
 
-white.write(white_time_init, align='center', font=('Arial', FONTSIZE, 'normal'))
-black.write(black_time_init, align='center', font=('Arial', FONTSIZE, 'normal'))
+white_time = time_in_seconds(white_time_init)
+black_time = time_in_seconds(black_time_init)
+
+white.write(time_string(white_time), align='center', font=('Arial', FONTSIZE, 'normal'))
+black.write(time_string(black_time), align='center', font=('Arial', FONTSIZE, 'normal'))
 
 while 1:
     if keyboard.is_pressed('space'):
-        game_start(white, black, white_time_init, black_time_init, white_increment, black_increment)
+        game_start(white, black, white_time, black_time, white_increment, black_increment)
         break
 
 turtle.done()
