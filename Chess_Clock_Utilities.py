@@ -1,5 +1,6 @@
 import turtle
 import time
+import math
 
 def make_rectangle(turtle, height, width, startx, starty, color):
     x, y = turtle.xcor(), turtle.ycor()
@@ -35,18 +36,24 @@ def time_in_seconds(time_string):
     return time_in_seconds
 
 def time_string(time_in_seconds):
-    hours = time_in_seconds // 3600
-    minutes = (time_in_seconds - hours*3600) // 60
+    hours = int(time_in_seconds // 3600)
+    minutes = int((time_in_seconds - hours*3600) // 60)
     seconds = time_in_seconds - hours*3600 - minutes*60
-    if seconds < 10:
-        time_string = '0' + str(seconds)
+    if (hours == 0) and (minutes == 0):
+        time_string = '{0:.1f} s'.format(seconds)
     else:
-        time_string = str(seconds)
-    if hours == 0:
-        time_string = str(minutes) + ':' + time_string
-    else:
-        if minutes < 10:
-            time_string = str(hours) + ':0' + str(minutes) + ':' + time_string
+        if math.ceil(seconds) == 60:
+            seconds = 0
+            minutes += 1
+        if seconds < 10:
+            time_string = ':0{0}'.format(math.ceil(seconds))
         else:
-            time_string = str(hours) + ':' + str(minutes) + ':' + time_string
+            time_string = ':{0}'.format(math.ceil(seconds))
+        if hours == 0:
+            time_string = '{0}'.format(minutes) + time_string
+        else:
+            if minutes < 10:
+                time_string = '{0}:0{1}'.format(hours, minutes) + time_string
+            else:
+                time_string = '{0}:{1}'.format(hours, minutes) + time_string
     return time_string

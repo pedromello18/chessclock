@@ -4,10 +4,10 @@ import keyboard
 from Chess_Clock_Utilities import *
 from Chess_Clock_Game import *
 
-CLOCK_ON_RIGHT_OF_BLACK = False
+CLOCK_ON_RIGHT_OF_BLACK = True
 
-white_time_init = '0:15'
-black_time_init = '0:15'
+white_time_init = '1:02'
+black_time_init = '1:02'
 white_increment = 0
 black_increment = 0
 
