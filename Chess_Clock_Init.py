@@ -47,6 +47,5 @@ while 1:
     if keyboard.is_pressed('space'):
         game_start(white, black, white_time, black_time, white_increment, black_increment)
         break
-    time.sleep(SENSITIVITY)
 
 turtle.done()
